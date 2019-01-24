@@ -1,0 +1,53 @@
+{
+  "name": "webcrawler",
+  "homepage": "https://github.com/iFonny/WebCrawler#readme",
+  "description": "WebCrawler",
+  "bugs": {
+    "url": "https://github.com/iFonny/WebCrawler/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iFonny/WebCrawler.git"
+  },
+  "author": "Nicolas Thouchkaieff",
+  "license": "ISC",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "link-module-alias",
+    "preinstall": "command -v link-module-alias && link-module-alias clean || true",
+    "dev": "nodemon index",
+    "start": "NODE_ENV=production node index",
+    "apidoc": "gulp doc"
+  },
+  "dependencies": {
+    "@koa/cors": "^2.2.3",
+    "axios": "^0.18.0",
+    "cherio": "^1.0.0-rc.2",
+    "config": "^3.0.1",
+    "cross-env": "^5.2.0",
+    "dotenv": "^6.2.0",
+    "es6-error": "^4.1.1",
+    "gulp": "^4.0.0",
+    "gulp-apidoc": "^0.2.8",
+    "koa": "^2.6.2",
+    "koa-bodyparser": "^4.2.1",
+    "koa-helmet": "^4.0.0",
+    "koa-logger": "^3.2.0",
+    "koa-respond": "^2.1.0",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
+    "koa-validate": "^1.0.7",
+    "lodash": "^4.17.11",
+    "mongoose": "^5.4.6"
+  },
+  "devDependencies": {
+    "link-module-alias": "^1.1.6",
+    "nodemon": "^1.18.9"
+  },
+  "_moduleAliases": {
+    "@root": ".",
+    "@lib": "lib",
+    "@models": "models"
+  }
+}

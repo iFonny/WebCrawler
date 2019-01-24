@@ -1,0 +1,1 @@
+define({ "api": [  {    "type": "get",    "url": "/start",    "title": "Launch crawling",    "version": "1.0.0",    "group": "Crawl",    "name": "startCrawl",    "sampleRequest": [      {        "url": "/api/crawl/start"      }    ],    "filename": "routes/crawl/start.js",    "groupTitle": "Crawl"  }] });
