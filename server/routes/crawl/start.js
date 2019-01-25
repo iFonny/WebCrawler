@@ -1,6 +1,7 @@
 const router = require('koa-router')();
 
 const CultbeautyCrawler = require('@lib/crawler');
+const Product = require('@models/product');
 
 /**
  * @api {get} /start Launch crawling
@@ -19,12 +20,13 @@ router.get('/start', async ctx => {
     ...(await getProducts(trendingURLs, 'trending', currentDate))
   ];
 
-  // TODO: Save products in database!
-
-  ctx.ok({
-    message: 'Successfully crawled!',
-    data: products
-  });
+  // Save products to DB and return
+  try {
+    await Product.insertMany(products);
+    ctx.ok(products);
+  } catch (err) {
+    ctx.send(422, 'Unprocessable Entity');
+  }
 });
 
 async function getProductURLs() {

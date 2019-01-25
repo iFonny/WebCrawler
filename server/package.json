@@ -17,8 +17,7 @@
     "postinstall": "link-module-alias",
     "preinstall": "command -v link-module-alias && link-module-alias clean || true",
     "dev": "nodemon index",
-    "start": "NODE_ENV=production node index",
-    "apidoc": "gulp doc"
+    "start": "gulp"
   },
   "dependencies": {
     "@koa/cors": "^2.2.3",
@@ -30,6 +29,7 @@
     "es6-error": "^4.1.1",
     "gulp": "^4.0.0",
     "gulp-apidoc": "^0.2.8",
+    "json-2-csv": "^3.1.1",
     "koa": "^2.6.2",
     "koa-bodyparser": "^4.2.1",
     "koa-helmet": "^4.0.0",

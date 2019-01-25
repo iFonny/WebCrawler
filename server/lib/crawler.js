@@ -56,7 +56,7 @@ class CultbeautyCrawler {
   }
 
   getProductPhoto() {
-    return this.$('.productCarousel .bigImage img').attr('src');
+    return this.$('.productDataContainer .bigImage img').attr('src');
   }
 
   getProductDescription() {
