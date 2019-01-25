@@ -30,7 +30,7 @@ router.get('/start', async ctx => {
 });
 
 async function getProductURLs() {
-  const crawler = new CultbeautyCrawler('https://www.cultbeauty.co.uk');
+  const crawler = new CultbeautyCrawler('http://www.cultbeauty.co.uk');
 
   await crawler.loadHtmlData();
 

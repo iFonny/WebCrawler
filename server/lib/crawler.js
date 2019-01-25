@@ -4,7 +4,7 @@ const axios = require('axios');
 
 class CultbeautyCrawler {
   constructor(url) {
-    this.baseURL = 'https://www.cultbeauty.co.uk';
+    this.baseURL = 'http://www.cultbeauty.co.uk';
     this.url = url;
     this.$ = null;
   }

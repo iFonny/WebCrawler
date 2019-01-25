@@ -20,6 +20,7 @@
     "start": "gulp"
   },
   "dependencies": {
+    "link-module-alias": "^1.1.6",
     "@koa/cors": "^2.2.3",
     "axios": "^0.18.0",
     "cherio": "^1.0.0-rc.2",
