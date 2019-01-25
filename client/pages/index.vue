@@ -63,6 +63,15 @@
         </b-tab-item>
 
         <b-tab-item :label="`All results (${allProducts.length})`">
+          <div class="container has-text-right">
+            <button
+              class="button field is-info"
+              @click="getResults('csv')"
+            >
+              <b-icon icon="file-export" />
+              <span>Export CSV</span>
+            </button>
+          </div>
           <result-table
             v-if="allProducts.length > 0"
             :json="allProducts"
@@ -121,9 +130,13 @@ export default {
   },
 
   methods: {
-    async getResults() {
+    async getResults(format) {
       try {
-        this.allProducts = await this.$axios.$get('/crawl/results')
+        if (format === 'csv')
+          window.open(
+            `${this.$axios.defaults.baseURL}/crawl/results?format=csv`
+          )
+        else return await this.$axios.$get('/crawl/results')
       } catch (error) {
         console.log(error)
         this.$toast.open({
@@ -137,9 +150,10 @@ export default {
 
     async startCrawl() {
       try {
+        console.log()
         this.loading = true
         this.products = await this.$axios.$get('/crawl/start')
-        await this.getResults()
+        this.allProducts = await this.getResults('json')
         this.loadingPercent = 100
         this.loading = false
       } catch (error) {

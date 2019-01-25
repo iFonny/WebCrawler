@@ -32,6 +32,7 @@
         <b-table-column
           field="price"
           label="Price"
+          width="80"
           numeric
           sortable
         >
@@ -54,7 +55,9 @@
           label="Type"
           sortable
         >
-          {{ props.row.type }}
+          <span class="tag is-warning">
+            {{ props.row.type }}
+          </span>
         </b-table-column>
       </template>
 
