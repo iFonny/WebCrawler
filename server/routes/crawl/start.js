@@ -14,14 +14,14 @@ router.get('/start', async ctx => {
   const currentDate = Date.now();
   const { bestSellersURLs, trendingURLs } = await getProductURLs();
 
-  // Merge bestseller & trending products
-  const products = [
-    ...(await getProducts(bestSellersURLs, 'bestseller', currentDate)),
-    ...(await getProducts(trendingURLs, 'trending', currentDate))
-  ];
-
-  // Save products to DB and return
   try {
+    // Merge bestseller & trending products
+    const products = [
+      ...(await getProducts(bestSellersURLs, 'bestseller', currentDate)),
+      ...(await getProducts(trendingURLs, 'trending', currentDate))
+    ];
+
+    // Save products to DB and return
     await Product.insertMany(products);
     ctx.ok(products);
   } catch (err) {
